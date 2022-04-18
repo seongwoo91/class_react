@@ -1,0 +1,15 @@
+.main__cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;  
+    height: 100vh;
+    .main__inner {     
+        font-size: 10vw;
+        line-height: 0.85;
+        font-family: "saol";
+        color: #fff;    
+        text-transform: uppercase;   
+    }
+}
+

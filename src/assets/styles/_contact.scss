@@ -1,0 +1,31 @@
+#contact__cont {
+    display: flex;    
+    align-items: center;
+    background: #000;  
+    height: 100vh;
+    .contact__inner {     
+        font-size: 8.5vw;
+        line-height: 0.85;
+        font-family: "saol";
+        color: #fff;    
+        text-transform: uppercase; 
+        div:nth-child(1) {
+            margin-left: 10vw;
+        }
+        div:nth-child(3) {
+            margin-left: 22vw;
+        }
+        div:nth-child(5) {
+            margin-left: 38vw;
+        }
+        p:last-child {
+            font-size: 1.1rem;
+            line-height: 1.5;
+            float: right;
+            margin-top: 5rem;
+            width: 25rem;
+            font-family: var(--kor_font);
+            
+        }  
+    }
+}

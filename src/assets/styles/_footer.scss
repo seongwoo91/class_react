@@ -1,0 +1,168 @@
+#footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: var(--white);
+    border-top: 1px solid var(--dark_border);
+    display: flex;
+    background-color: var(--dark_bg);
+    display: flex;
+    align-items: center;
+    font-family: "Rajdhani"; 
+
+    div {
+        text-align: center;
+        padding: 1.45rem;
+    }
+    h4,
+    ul {
+        display: inline-block;
+    }
+    h4 {
+        font-weight: 600;
+        padding: 0 0.6em;
+        text-transform: capitalize;
+    }
+
+    .footer_1 {
+        flex: 1 1 25%;
+        border-right: 1px solid var(--dark_border);
+        a {
+            position: relative;
+        
+            &::before { 
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width:0;
+                height: 1px;
+                background: var(--white);
+                //transform: scaleX(0);
+                transition: all 0.3s ease;
+            }                                        
+            &:hover::before {
+                //transform: scaleX(0.7);                   
+                width: 100%;
+            }
+        }
+    }
+    .footer_2 {
+        flex: 1 1 20%;
+        border-right: 1px solid var(--dark_border);
+        a {
+            position: relative;
+            &::before { 
+                content: '';
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width:0;
+                height: 1px;
+                background: var(--white);
+                //transform: scaleX(0);
+                transition: all 0.3s ease;
+            }                                        
+            &:hover::before {
+                //transform: scaleX(0.7);                   
+                width: 100%;
+            }
+        }
+        
+    }
+    .footer_3 {
+        flex: 1 1 55%;
+        li {
+            display: inline;
+
+            a {
+                display: inline-block;
+                padding: 0 0.6em;
+                position: relative;
+
+                &::before { 
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    width:0;
+                    height: 1px;
+                    background: var(--white);
+                    //transform: scaleX(0);
+                    transition: all 0.3s ease;
+                }                                        
+                &:hover::before {
+                    //transform: scaleX(0.7);                   
+                    width: 100%;
+                }
+                
+            }
+        }
+    }
+}
+
+.light#footer {
+    background-color: var(--light_bg);
+    border-color:var(--black);
+    color: var(--black);
+    .footer_1 {
+        li {
+            a {
+                &::before {
+                    background: var(--black);                    
+                }        
+               
+            }
+        }
+        
+    }
+    .footer_2 {
+        li {
+            a {
+                &::before { 
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    bottom: -3px;
+                    width:0;
+                    height: 1px;
+                    background: var(--black);
+                    //transform: scaleX(0);
+                    transition: all 0.3s ease;
+                }          
+                &:hover::before {
+                    //transform: scaleX(0.7);   
+                    background: var(--black);                
+                    width: 100%;
+                }                           
+               
+            }
+        }
+        
+    }
+    .footer_3 {
+        li {
+            a {
+                &::before {
+                    background: var(--black);
+                }        
+               
+            }
+        }
+        
+    }
+    
+}
+
+//미디어 쿼리
+@media (max-width:1099px){
+    #footer {
+        div:nth-child(1){
+            h4 {
+                display: none;}
+            }
+        div:nth-child(2){display: none;}
+        div:nth-child(3){display: none;}
+    }
+}

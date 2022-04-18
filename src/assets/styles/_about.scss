@@ -1,0 +1,88 @@
+
+
+#about__cont {
+    font-family: "Chosunilbo";
+    padding: 0 20vw 20vw;
+
+}
+.about__inner {
+
+}
+
+.about__item {
+    display: flex;
+    flex-direction: column;    
+    img {        
+        
+    }
+    .text {
+        
+        padding-right: 26%;
+        color: var(--white);
+        
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
+.about__item2 {
+    display: flex;    
+    margin: 20vw 0 ;
+    img {
+        flex: 1 1 70%;                      
+    }
+
+    .text {
+        margin-left: 40px;
+        flex: 1 1 30%;
+        color: var(--white);      
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
+.about__item3 {
+    display: flex;    
+    img {
+        flex: 1 1 50%;
+    }
+    .text {
+        flex: 1 1 50%;
+        color: var(--white);    
+        margin-right: 40px;    
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 18px;
+    }
+    p {
+        font-size: 18px;
+        line-height: 1.5;
+    }
+}
+
+//라이트
+.light#about__cont {
+    background-color: var(--light_bg);
+    .about__item,
+    .about__item2,
+    .about__item3 {
+        .text {
+            color: var(--black);
+        }
+    }
+}
+
