@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Contents({children}){
-    return <main id='main'>{children}</main>    
+    return <main id="main">{children}</main>
 }
 
 export default Contents;

@@ -6,6 +6,12 @@
 //reset
 @import "./assets/styles/reset";
 
+//common
+@import "./assets/styles/common";
+
+//loading
+@import "./assets/styles/loading";
+
 //main
 @import "./assets/styles/main";
 
@@ -17,9 +23,6 @@
 
 //about
 @import "./assets/styles/about";
-
-//contact
-@import "./assets/styles/contact";
 
 //portfolio
 @import "./assets/styles/portfolio";
@@ -33,8 +36,5 @@
 //youtube
 @import "./assets/styles/youtube";
 
-//common
-@import "./assets/styles/common";
-
-//loading
-@import "./assets/styles/loading";
+//contact
+@import "./assets/styles/contact";

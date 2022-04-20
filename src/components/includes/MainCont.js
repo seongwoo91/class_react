@@ -1,29 +1,25 @@
-import React from 'react';
-
-
-//함수형 컴퍼넌트 * 클래스 컴퍼넌트   --> 리액트 훅 (면접에서 엄청나게 물어봄)
+import React from "react";
 
 function MainInfo({text}){
-    return <div>{text}</div>       
+    return <div>{text}</div>
 }
 
 const mainText = [
-    {text : "WE PROVIDE"},
+    {text : "We Provide"},
     {text : "Visual coding"},
-    {text : "solutions"},
+    {text : "Solutions"},
     {text : "for you webs"},
 ]
 
-
 function MainCont(){
-    return(
-        <section className='main__cont'>
-            <div className='main__inner'>
-               {mainText.map(txt => (
-                   <MainInfo text={txt.text} key={txt.text}/>
-               ))}
+    return (
+        <section className="main__cont">
+            <div className="main__inner">
+                {mainText.map(txt => (
+                    <MainInfo text={txt.text} key={txt.text} />
+                ))}
             </div>
-        </section>    
+        </section>
     )
 }
 

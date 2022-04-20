@@ -2,7 +2,7 @@ import React from 'react'
 
 function ContTitle(props) {
   return (
-    <section id="cont__title" className={props.color}>
+    <section className={`cont__title ${props.color}`}>
         <div className="container">
             <h1>
                 <strong>{props.title[0]}</strong>
@@ -13,4 +13,4 @@ function ContTitle(props) {
   )
 }
 
-export default ContTitle;
+export default ContTitle

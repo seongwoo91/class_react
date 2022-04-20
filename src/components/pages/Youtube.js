@@ -1,20 +1,20 @@
-import React from 'react';
-import Header from '../layout/Header';
-import Contents from '../layout/Contents';
-import Footer from '../layout/Footer';
-import ContTitle from '../layout/ContTitle';
-import ContContact from '../layout/ContContact';
-import YoutubeCont from '../includes/YoutubeCont';
+import React from "react";
+import Header from "../layout/Header";
+import Contents from "../layout/Contents";
+import Footer from "../layout/Footer";
+import Title from "../layout/Title";
+import Contact from "../layout/Contact";
+import YoutubeCont from "../includes/YoutubeCont";
 
 function Youtube(){
     return (
         <>
-            <Header />         
+            <Header />
             <Contents>
-                <ContTitle title={["coding","youtube"]} />
-                <YoutubeCont />               
-                <ContContact />             
-            </Contents>          
+                <Title title={["Youtube","book"]} />
+                <YoutubeCont />
+                <Contact />
+            </Contents>
             <Footer />
         </>
     )

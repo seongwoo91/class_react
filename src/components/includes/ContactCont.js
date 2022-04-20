@@ -1,8 +1,5 @@
 import React from 'react'
 
-
-
-
 function ContactCont() {
   return (
     <section className="contact__cont">
@@ -21,4 +18,4 @@ function ContactCont() {
   )
 }
 
-export default ContactCont;
+export default ContactCont

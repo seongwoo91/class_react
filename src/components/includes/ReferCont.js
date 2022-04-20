@@ -1,7 +1,8 @@
 import React from 'react'
-function ReferCont() {
+
+function referCont(props) {
   return (
-    <section className="refer__cont">
+    <section className={`refer__cont ${props.color}`}>
       <div className="container">
         <div className="refer__inner">
           <h2>CSS</h2>
@@ -46,7 +47,8 @@ function ReferCont() {
           </table>
         </div>
       </div>
-    </section>
+    </section>  
   )
 }
-export default ReferCont;
+
+export default referCont
