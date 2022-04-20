@@ -9,13 +9,13 @@ import AboutCont from '../includes/AboutCont';
 function About(){
     return (
         <>
-            <Header color="light"/>         
+            <Header color=""/>         
             <Contents>
-                <ContTitle title={["about","me"]} color="light"/>
-                <AboutCont color="light"/>
+                <ContTitle title={["about","me"]} color=""/>
+                <AboutCont color=""/>
                 <ContContact />
             </Contents>          
-            <Footer color="light"/>
+            <Footer color=""/>
         </>
     )
 }

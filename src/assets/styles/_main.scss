@@ -2,14 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #000;  
     height: 100vh;
-    .main__inner {     
+    background: var(--black);
+
+    .main__inner {
         font-size: 10vw;
         line-height: 0.85;
-        font-family: "saol";
-        color: #fff;    
-        text-transform: uppercase;   
+        font-family: var(--main_font);
+        color: var(--white);
+        text-transform: uppercase;
     }
 }
 
+// main Animation 
+.main__inner > div {
+    opacity: 0;
+    transform: translateY(100px);
+}

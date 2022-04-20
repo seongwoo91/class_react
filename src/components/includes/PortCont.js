@@ -1,145 +1,35 @@
 import React from 'react';
 
-function PortCont(){
+
+function PortInfo({id, category, image, link, title}){
+    return (
+        <article className="port__item">
+            <figure className="img">
+                <a href={link}><img src={image} alt={`port0${id}`} /></a>
+            </figure>
+            <div className="text">
+                <h3>{category}</h3>
+                <p>{title}</p>
+            </div>
+        </article>
+    )
+}
+
+function PortCont({port}){
     return (
         <section className='port__cont'>        
             <div className='container'>
                 <div className='port__inner'>
-                    <article className='port_item'>
-                        <figure className='img'>
-                            <a href=""><img src="/img/port01.jpg" alt="port01" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/port02.jpg" alt="port02" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/port03.jpg" alt="port03" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>         
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/port04.jpg" alt="port04" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site01.jpg" alt="site01" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site02.jpg" alt="site02" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>      
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/port04.jpg" alt="port04" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site01.jpg" alt="site01" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site02.jpg" alt="site02" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>        
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/port04.jpg" alt="port04" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site01.jpg" alt="site01" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site02.jpg" alt="site02" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>      
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/port04.jpg" alt="port04" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site01.jpg" alt="site01" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                    
-                    <article className='port_item'>
-                    <figure className='img'>
-                            <a href=""><img src="/img/site02.jpg" alt="site02" /></a>
-                        </figure>
-                        <div className='text'>
-                            <h3>portfolio title</h3>
-                            <p>portfolio</p>
-                        </div>
-                    </article>                             
+                {port.map((port) => (
+                        <PortInfo
+                            key={port.id}
+                            id={port.id}
+                            category={port.category}
+                            image={port.image}
+                            link={port.link}
+                            title={port.title}
+                        />
+                    ))}                                          
                 </div>
             </div>           
         </section> 

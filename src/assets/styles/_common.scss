@@ -18,15 +18,25 @@
     text-transform: uppercase;
     line-height: 0.85;
     color: var(--white);
+
+    strong {
+        display: block;
+        opacity: 0;
+        transform: translateX(100px) translateY(100px);
+    }
+    em {
+       display: block;
+       opacity: 0;
+       transform: translateX(100px) translateY(100px);
+    }
+
 }
 .light#cont__title {
     color: var(--black);
     background-color: var(--light_bg);
 }
 
-em {
-    display: block;
-}
+
 
 //cont__contact
 .cont__contact {
@@ -69,3 +79,5 @@ em {
         padding-bottom: 10vw;
     }
 }
+
+//타이틀 애니메이션
