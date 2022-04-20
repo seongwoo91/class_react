@@ -7,11 +7,12 @@ import Contact from "../layout/Contact";
 import ReferCont from "../includes/ReferCont";
 import { gsap } from "gsap";
 import Loading from "../basics/Loading";
+import axios from "axios";
 
 class Reference extends React.Component {
     state = {
         isLoading: true,
-        ports: [],
+        refers: [],
     }
 
     mainAnimation = () => {
@@ -48,43 +49,43 @@ class Reference extends React.Component {
         }, 10)
     }
 
-    getPorts = () => {
+    getSite  = async () => {
+        const { 
+            data: {
+                data : {refer}
+            }
+         }  = await axios.get("https://seongwoo91.github.io/class_react/src/assets/json/reference.json");
 
-        //console.log(ports)
-
-        setTimeout(() => {
-            console.log("두번째 시작")
-            this.setState({isLoading: false});
-            this.mainAnimation();
-        }, 1600)
+         this.setState({refers: refer, isLoading: false})
+            
+        this.mainAnimation();
+     
     }
 
     componentDidMount() {
-        setTimeout(() => {
-            console.log("첫번째 시작")
+        setTimeout(() => {            
             document.getElementById("loading").classList.remove("loading__active");
-            this.getPorts();
+            document.querySelector("body").style.background="#000"
+            this.getSite();
         }, 2000)
     }
 
     render(){
-        const {isLoading} = this.state;
-
-       
+        const {isLoading, refers} = this.state;
 
         return (
             <>
                 {isLoading ? (
-                    <Loading />
+                    <Loading color="light"/>
                 ) : (
                     <>
-                        <Header />
+                        <Header color="light"/>
                         <Contents>
-                            <Title title={["reference","book"]} />
-                            <ReferCont />
+                            <Title title={["reference","book"]} color="light"/>
+                            <ReferCont refers={refers} color="light"/>
                             <Contact />
                         </Contents>
-                        <Footer />
+                        <Footer color="light"/>
                     </>
                 )}
             </>
