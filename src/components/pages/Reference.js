@@ -11,12 +11,12 @@ import axios from "axios";
 
 class Reference extends React.Component {
     state = {
-        isLoading: true,
+        isLoading : true,
         refers: [],
     }
 
     mainAnimation = () => {
-        setTimeout(() => { 
+        setTimeout(()=>{
             gsap.to("#header", {
                 duration: 0.8, 
                 top: 0,
@@ -44,52 +44,79 @@ class Reference extends React.Component {
                 duration: 0.5,
                 y: 0,
                 opacity: 1,
-                delay: 1.6,                
+                delay: 1.6,
+                ease: "power3.out"
             });
-        }, 10)
+        })
     }
-
-    getSite  = async () => {
-        const { 
+    getRefers = async () => {
+        const {
             data: {
-                data : {refer}
+                data : { htmlRefer},
             }
-         }  = await axios.get("https://seongwoo91.github.io/class_react/src/assets/json/reference.json");
+        } = await axios.get("https://webstoryboy.github.io/react2022/src/assets/json/refer.json");        
 
-         this.setState({refers: refer, isLoading: false})
-            
+        this.setState({refers: htmlRefer, isLoading: false});
         this.mainAnimation();
-     
     }
 
-    componentDidMount() {
-        setTimeout(() => {            
+    componentDidMount(){
+        setTimeout(()=>{
             document.getElementById("loading").classList.remove("loading__active");
-            document.querySelector("body").style.background="#000"
-            this.getSite();
-        }, 2000)
+            this.getRefers();            
+        }, 2000);
     }
 
     render(){
         const {isLoading, refers} = this.state;
 
-        return (
+        return(
             <>
                 {isLoading ? (
-                    <Loading color="light"/>
+                    <Loading />
                 ) : (
                     <>
-                        <Header color="light"/>
+                        <Header />
                         <Contents>
-                            <Title title={["reference","book"]} color="light"/>
-                            <ReferCont refers={refers} color="light"/>
+                            <Title title={["reference","book"]} />
+                            <section className="refer__cont">
+                                <div className="container">
+                                    <div className="refer__inner">
+                                        <h2>css</h2>
+                                        <ul className="refer__list">
+                                            {refers.map((refer) => (
+                                                <ReferCont
+                                                key={refer.id}
+                                                id={refer.id}
+                                                title={refer.title}
+                                                desc={refer.desc}
+                                                desc2={refer.desc2}
+                                                use={refer.use}
+                                                element={refer.element}
+                                                tag={refer.tag}
+                                                version={refer.version}
+                                                view={refer.view}
+                                                image={refer.image}
+                                                link={refer.link}
+                                                definition={refer.Definition}
+                                                Accessibility={refer.Accessibility}
+                                                CrossBroswing={refer.CrossBroswing}
+                                                mdn={refer.mdn}
+                                                w3c={refer.w3c}                                        
+                                                />
+                                            ))}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
                             <Contact />
                         </Contents>
-                        <Footer color="light"/>
+                        <Footer />
                     </>
                 )}
             </>
         )
+
     }
 }
 

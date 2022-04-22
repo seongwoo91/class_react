@@ -1,9 +1,10 @@
 {
+    
     "data" : {
         "type" : "html",
         "version" : "20220420_1",
         "author" : "seongwoo",
-        "refer" : [
+        "htmlRefer" : [
             {
                 "id" : 1,
                 "title" : "<a>",

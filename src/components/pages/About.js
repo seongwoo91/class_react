@@ -72,7 +72,7 @@ class About extends React.Component {
     render(){
         const {isLoading} = this.state;
 
-       
+
 
         return (
             <>

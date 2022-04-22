@@ -4,11 +4,25 @@ import Contents from "../layout/Contents";
 import Footer from "../layout/Footer";
 import { gsap } from "gsap";
 
+// function ReferDetail(props){
+    
+//     return (
+//         <div>referdatail</div>
+//     )
+// }
 
 class ReferDetail extends React.Component {
-    
+    componentDidMount(){
+        const {location, history} = this.props;
+        if(location.state === undefined) {
+            history.push("/reference");
+        }
+
+        this.mainAnimation();
+    }
 
     mainAnimation = () => {
+        setTimeout(()=>{
             gsap.to("#header", {
                 duration: 0.8, 
                 top: 0,
@@ -17,37 +31,83 @@ class ReferDetail extends React.Component {
                 duration: 0.8, 
                 bottom: 0,
                 delay: 0.2,
-            });          
-            gsap.to(".refer__inner", {
-                duration: 0.5,
-                y: 0,
-                opacity: 1,
-                delay: 1.6,                
-            });
-    }
-
-    componentDidMount(){
-        
-        this.mainAnimation();
+            });           
+         
+        })
     }
 
     render(){
-        return(
+        const {location} = this.props;
+        console.log(location.state);        
+
+        if(location.state === undefined) {
+            return <div>잘못된 페이지 입니다.</div>
+        } else {
+            return (
             <>
                 <Header color="light"/>
-                <Contents>     
-                <section className={`refer__cont light`}>
-                    <div className="container">
-                        <div className="refer__inner">    
-                        123           
+                <Contents>
+                    <section className="refer__cont">
+                        <div className="container">
+                            <div className="refer__inner">
+                                <div className="refer__table">
+                                    <h3>{location.state.title}</h3>
+                                    <img src={location.state.image} alt="" />
+                                    <p>{location.state.desc}</p>
+                                    <div>
+                                        <table className='refer__table'>
+                                            <thead>
+                                                <tr>
+                                                    <th>특징</th>
+                                                    <th>설명</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th>요소</th>
+                                                    <td>{location.state.element}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>닫는태그</th>
+                                                    <td>{location.state.tag}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>버전</th>
+                                                    <td>{location.state.version}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>시각적표현</th>
+                                                    <td>{location.state.view}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>사용성</th>
+                                                    <td>{location.state.use}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <h2>definition</h2>
+                                        <ul>
+                                            <li>{location.state.Accessibility[0]}</li>
+                                            <li>{location.state.Accessibility[1]}</li>
+                                            <li>여긴 정의가 들어갈곳입니다.</li>
+                                            <li>여긴 정의가 들어갈곳입니다.</li>
+                                            <li>여긴 정의가 들어갈곳입니다.</li>
+                                            <li>여긴 정의가 들어갈곳입니다.</li>
+                                            <li>여긴 정의가 들어갈곳입니다.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </section>
-                </Contents>
+                    </section>
+                </Contents>           
                 <Footer color="light"/>
             </>
-        )
+            )            
+        }
     }
 }
+
+
 
 export default ReferDetail
