@@ -85,16 +85,28 @@ class ReferDetail extends React.Component {
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <h2>definition</h2>
+                                        <h2>정의</h2>
                                         <ul>
-                                            <li>{location.state.Accessibility[0]}</li>
-                                            <li>{location.state.Accessibility[1]}</li>
-                                            <li>여긴 정의가 들어갈곳입니다.</li>
-                                            <li>여긴 정의가 들어갈곳입니다.</li>
-                                            <li>여긴 정의가 들어갈곳입니다.</li>
-                                            <li>여긴 정의가 들어갈곳입니다.</li>
-                                            <li>여긴 정의가 들어갈곳입니다.</li>
-                                        </ul>
+                                        {location.state.definition.map(e => (                                            
+                                                <li key={e}>{e}</li>                                                                                
+                                        ))}                                           
+                                        </ul>    
+                                        <h2>접근성</h2>
+                                        <ul>
+                                        {location.state.Accessibility.map(e => (                                            
+                                                <li key={e}>{e}</li>                                                                                
+                                        ))} 
+                                        </ul> 
+                                        <h2>크로스브라우징</h2>
+                                        <ul>
+                                        {location.state.CrossBroswing.map(e => (                                            
+                                                <li key={e}>{e}</li>                                                                                
+                                        ))} 
+                                        </ul> 
+                                        <h2>참고사이트</h2>
+                                        <a href={location.state.link}>웹스토리보이</a>
+                                        <a href={location.state.mdn}>MDN</a>
+                                        <a href={location.state.w3n}>W3N</a>
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 .refer__cont {
     background-color: var(--black);
     min-height: 100vh;
+    margin-bottom: 50vh;
 }
 .refer__inner {
 
@@ -86,6 +87,23 @@
         color: var(--black);
         padding: 1.4em;
     }
+    h2 {
+        margin-top: 30px;        
+    }
+    a {
+        display: block;
+        margin: 15px 0;
+        color: burlywood;
+    }
+    ul {
+        padding-bottom: 5px;
+        border-bottom: 1px solid #fff;
+        margin-bottom: 10px;
+        li {
+            margin: 10px;
+        }
+    }
+
     .refer__table {
         color: var(--white);
         font-family: var(--subkor_font);
