@@ -4,14 +4,15 @@ import Contents from "../layout/Contents";
 import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
-import YoutubeCont from "../includes/YoutubeCont";
+import MovieCont from "../includes/MovieCont";
+// import MovieList from "../includes/MovieList";
 import Loading from "../basics/Loading";
 import axios from "axios";
 import { gsap } from "gsap";
 
 
 
-class Youtube extends React.Component {
+class Movie extends React.Component {
     state =  {
         isLoading: true,
         lists: [],
@@ -51,16 +52,17 @@ class Youtube extends React.Component {
             // });
         }, 100)
     }
-    getYoutubes = async () => {
-        const lists = await axios.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=piano&key=AIzaSyCinVCn2WA35HhLOSqXJjVNFkQeSxtrndc");
+    getMovie = async () => {
+        const lists = await axios.get("https://api.themoviedb.org/3/search/movie?api_key=3b53624919c9efd5086a569bddeaf216&query=music");
         console.log(lists)
         this.setState({lists, isLoading: false});
         this.mainAnimation();
     }
+
     componentDidMount(){
-        setTimeout(() => {
+        setTimeout(() => {            
             document.getElementById("loading").classList.remove("loading__active");
-            this.getYoutubes();
+            this.getMovie();
         }, 2000);
     }
     render() {
@@ -68,13 +70,13 @@ class Youtube extends React.Component {
         return (
             <>
                 {isLoading ? (
-                    <Loading color="black" />
+                    <Loading/>
                 ) : (
                     <>
                         <Header />
                         <Contents>
-                            <Title title={["Youtube", "reference"]} />
-                            <YoutubeCont lists={lists} />
+                            <Title title={["Movie", "Site"]} />
+                            <MovieCont lists={lists} />
                             <Contact />
                         </Contents>
                         <Footer />
@@ -85,4 +87,4 @@ class Youtube extends React.Component {
     }
 }
 
-export default Youtube;
+export default Movie;
