@@ -1,30 +1,32 @@
-import React from "react";
+import React from 'react'
 import Header from "../layout/Header";
 import Contents from "../layout/Contents";
 import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
-import YoutubeCont from "../includes/YoutubeCont";
-import Loading from "../basics/Loading";
-import axios from "axios";
+import YoutubeList from "../includes/YoutubeList";
+import YoutubeSearch from "../includes/YoutubeSearch";
+import react, {useEffect, useState} from 'react';
 import { gsap } from "gsap";
+import Loading from "../basics/Loading";
 
 
 
-class Youtube extends React.Component {
-    state =  {
-        isLoading: true,
-        lists: [],
-        searchs: []
-    }
-    mainAnimation = () => {
-        setTimeout(() => {
+
+function Youtube() {
+
+   
+    const [video, setvideo] = useState([]);
+
+
+   const mainAnimation = () => {
+        setTimeout(() => { 
             gsap.to("#header", {
-                duration: 0.8,
+                duration: 0.8, 
                 top: 0,
             });
             gsap.to("#footer", {
-                duration: 0.8,
+                duration: 0.8, 
                 bottom: 0,
                 delay: 0.2,
             });
@@ -42,47 +44,66 @@ class Youtube extends React.Component {
                 delay: 1.3,
                 ease: "power4.out"
             });
-            // gsap.to(".refer__inner", {
-            //     duration: 0.5,
-            //     y: 0,
-            //     opacity: 1,
-            //     delay: 1.6,
-            //     ease: "power3.out"
-            // });
-        }, 100)
+            
+        }, 10)
     }
-    getYoutubes = async () => {
-        const lists = await axios.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=piano&key=AIzaSyCinVCn2WA35HhLOSqXJjVNFkQeSxtrndc");
-        console.log(lists)
-        this.setState({lists, isLoading: false});
-        this.mainAnimation();
+
+
+
+    const search = (query) => {
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
+          
+          fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=${query}&key=${process.env.REACT_APP_API}&type=video`, requestOptions)
+            .then(response => response.json())
+            .then(result => setvideo(result.items))
+            .catch(error => console.log('error', error));
     }
-    componentDidMount(){
-        setTimeout(() => {
-            document.getElementById("loading").classList.remove("loading__active");
-            this.getYoutubes();
-        }, 2000);
-    }
-    render() {
-        const { lists, isLoading } = this.state;
-        return (
-            <>
-                {isLoading ? (
-                    <Loading color="black" />
-                ) : (
-                    <>
-                        <Header />
-                        <Contents>
-                            <Title title={["Youtube", "reference"]} />
-                            <YoutubeCont lists={lists} />
-                            <Contact />
-                        </Contents>
-                        <Footer />
-                    </>
-                )}
-            </>
+
+    useEffect(()=>{
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+          };
+          
+          fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=pianoman&key=${process.env.REACT_APP_API}&type=video`, requestOptions)
+            .then(response => response.json())
+            .then(result => {
+                setvideo(result.items)
+                mainAnimation()
+                })
+            .catch(error => console.log('error', error));
+    }, []);
+
+  
+    
+
+    
+   
+    
+        return (        
+          
+                  <>
+                      <Header/>
+                      <Contents>
+                          <Title title={["youtube","reference"]} />
+                          <section className="youtube__cont">
+                              <div className="container">
+                                  <div className="youtube__inner">   
+                                  <YoutubeSearch onSearch={search} />
+                                  <YoutubeList videos={video}/>
+                                  </div>
+                              </div>
+                          </section>        
+                          <Contact />
+                      </Contents>
+                      <Footer/>
+                  </>
+         
         )
-    }
+   
 }
 
-export default Youtube;
+export default Youtube

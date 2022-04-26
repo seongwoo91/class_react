@@ -1,26 +1,18 @@
 import React from 'react';
+import MovieItem from './MovieItem';
 
-function YoutubeItem(props){
-    console.log("123")
-    return (
-        <li>
-            <img src={"https://image.tmdb.org/t/p/w500"+props.video.poster_path} alt={props.video.poster_path} />
-            <p className='title'>{props.video.title}</p>
-        </li>
-    )
-}
 
-const YoutubeList = (props) => {
-    console.log("123")
-    console.log(props.items.data.results)
+function MovieList(props) {
+  console.log(props)
+  console.log("123")
   return (
-    <div className="youtube__list">
-        <ul>
-            {props.items.data.results.map((list, index) => (
-                <YoutubeItem key={index} video={list} />
-            ))}
-        </ul>
+    <div className='youtube__list'>
+      <ul>
+        {props.videos.map((video, index) => (
+          <MovieItem key={index} video={video} />
+        ))}
+      </ul>
     </div>
   )
 }
-export default YoutubeList;
+export default MovieList
