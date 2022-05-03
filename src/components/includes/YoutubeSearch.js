@@ -1,11 +1,10 @@
 import React, { useRef } from "react";
 
-
 function YoutubeSearch({ onSearch }) {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
-    onSearch(value)
+    onSearch(value);
   };
   const onClick = () => {
     handleSearch();
@@ -25,7 +24,7 @@ function YoutubeSearch({ onSearch }) {
         onKeyPress={onKeyPress}
       />
       <button type="submit" onClick={onClick}>
-        검색
+        검 색
       </button>
     </div>
   );
