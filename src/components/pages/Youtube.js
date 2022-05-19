@@ -6,6 +6,7 @@ import Title from "../layout/Title";
 import Contact from "../layout/Contact";
 import YoutubeList from "../includes/YoutubeList";
 import YoutubeSearch from "../includes/YoutubeSearch";
+import Loading from "../basics/Loading";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 
@@ -14,6 +15,7 @@ function Youtube() {
 
   const mainAnimation = () => {
     setTimeout(() => {
+      document.getElementById("loading").classList.remove("loading__active");
       gsap.to("#header", {
         duration: 0.8,
         top: 0,
@@ -37,7 +39,7 @@ function Youtube() {
         delay: 1.3,
         ease: "power4.out",
       });
-    }, 10);
+    }, 2000);
   };
 
   const search = (query) => {
@@ -75,6 +77,7 @@ function Youtube() {
 
   return (
     <>
+      <Loading />
       <Header />
       <Contents>
         <Title title={["youtube", "reference"]} />

@@ -6,6 +6,7 @@ import Title from "../layout/Title";
 import Contact from "../layout/Contact";
 import MovieList from "../includes/MovieList";
 import MovieSearch from "../includes/MovieSearch";
+import Loading from "../basics/Loading";
 import { useEffect, useState } from "react";
 import { gsap } from "gsap";
 
@@ -14,6 +15,7 @@ function Movie() {
 
   const mainAnimation = () => {
     setTimeout(() => {
+      document.getElementById("loading").classList.remove("loading__active");
       gsap.to("#header", {
         duration: 0.8,
         top: 0,
@@ -37,7 +39,7 @@ function Movie() {
         delay: 1.3,
         ease: "power4.out",
       });
-    }, 10);
+    }, 2000);
   };
 
   const search = (query) => {
@@ -75,6 +77,7 @@ function Movie() {
 
   return (
     <>
+      <Loading />
       <Header />
       <Contents>
         <Title title={["movie", "reference"]} />

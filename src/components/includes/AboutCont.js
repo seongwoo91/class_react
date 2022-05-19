@@ -34,6 +34,8 @@ const aboutText = [
     }
 ]
 
+
+
 function AboutCont(props) {
   return (
     <section className={`about__cont ${props.color}`} >
